@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Products  {% endblock%}
+{% block body %}
+<div class="row">
+   <a href="{{url_for('product.create')}}" class="btn btn-outline-primary btn-lg mt-4">Add product</a>
+ </div>
+ <div class="row mt-4 d-flex justify-content-between">
+   {% for product in products %}
+   <div class="card col-4 mb-4" style="width: 18rem;">
+      <img src="{{product.image}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.price}} LE</p>
+        <div class="row ">
+         <div class="col-12 d-flex justify-content-between">
+           <a href="{{url_for('product.details', id=product.id)}}" class="btn btn-outline-primary">Details</a>
+           <a href="{{url_for('product.edit', id=product.id)}}" class="btn btn-outline-primary">Edit</a>
+         </div>
+         <div class="col-12 text-center mt-2">
+           <a href="{{url_for('product.delete', id=product.id)}}" class="btn btn-outline-danger">Delete</a>
+         </div>
+       </div>
+      </div>
+    </div>
+   {% endfor %}
+   
+  
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Edit Product  {% endblock%}
+{% block body %}
+<form method="post" class="mt-4" enctype="multipart/form-data">
+   <div class="mb-3">
+     <label for="name" class="form-label">Product name</label>
+     <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="{{product.name}}">
+   </div>
+   <div class="mb-3">
+     <label for="desc" class="form-label">Description</label>
+     <input type="textarea" class="form-control" name="desc" id="exampleInputPassword1" value="{{product.desc}}">
+   </div>
+   <div class="mb-3">
+      <label for="desc" class="form-label">Price</label>
+      <input type="number" step="0.01" class="form-control" name="price" id="exampleInputPassword1" value="{{product.price}}">
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Image</label>
+      <input type="file"  class="form-control" name="image" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" name="instock" class="form-check-input" id="exampleCheck1" checked>
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+   
+   <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+ 
+{% endblock %}
